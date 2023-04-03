@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.min.css">
+    <title>POO</title>
+</head>
+<body>
+    <main class="container">
+        <header class="cabecera_principal">
+            <h1 class="titulo_principal">
+                <dfn class="definicion">
+                    <abbr title="Object-oriented Programming">OOP</abbr>
+                </dfn>: abreviatura de la <span>Programación</span> <span>Orientada</span> a <span>Objetos</span>              
+            </h1>
+        </header>
+        <section class="seccion seccion--1">
+            <header>
+                <h2>Consideraciones</h2>
+            </header>
+            <div class="contenido supuesto">
+                <div class="supuesto">
+                    Imaginemos le siguiente supuesto donde deseamos de dar de alta dos personas:
+                    <div class="code">
+                        $nombre = 'Carlos';
+                        $edad = 23;
+                        $pais = 'España';                   
+                    </div>
+                </div>
+                <div class="supuesto">
+                    Si deseamos otra persona:
+                    <div class="code">
+                        $nombre2 = 'María';
+                        $edad2 = 22;
+                        $pais3 = 'España';
+                    </div>
+                </div> 
+                <div>
+                	Como observamos tenemos que <em>copiar</em> o reproducir las mismas variables en cada una de las personas. <strong>Si tenemos que copiar en programación estamos haciendo algo mal.</strong> 
+                </div>              
+            </div>            
+        </section>
+
+        <section class="seccion seccion--2">
+            <header>
+                <h2>Una posible solución sería la <abbr title="Programación orientada a objetos">POO</abbr></h2>
+            </header>
+            <div class="contenido">
+               <p>
+                   En el ejemplo de arriba tenemos un patrón, usuarios con nombre, edad y país.
+               </p>              
+                <ol>                       
+                   <li>
+                        Lo que necesitamos en una <em>plantilla</em> donde podamos almacenar estos datos, en definitiva una <strong>clase</strong>.
+                        <div class="code">
+                            <details>
+                                <summary>//creación de una clase</summary>
+                                class Persona{
+                                &nbsp;&nbsp;public $nombre;
+                                &nbsp;&nbsp;public $edad;
+                                &nbsp;&nbsp;public $pais;
+                                }
+                            </details>
+                        </div>
+                    </li>
+                    <li>
+                        La forma de cargar los datos sería la siguiente.
+                        <div class="code">
+                            <details>
+                                <summary>//cargamos los datos</summary>
+                                //datos de carlos
+                                $carlos = new Persona();
+                                $carlos->nombre = "Carlos";
+                                $carlos->edad = 23;
+                                $carlos->pais = "España";
+                                //datos de María
+                                $maria = new Persona();
+                                $maria->nombre = "María";
+                                $maria->edad = 22;
+                                $maria->pais = "España";
+                                echo $maria->nombre.' tiene '.$maria->edad.' años y vive en '.$maria->pais
+                            </details>
+                        </div>      
+                    </li> 
+                </ol>                       
+            </div>            
+        </section>
+
+        <section class="seccion">
+            <header>
+                <h2>Funciones</h2>
+            </header>
+            <div class="contenido">
+               <p>
+                   También es posible agregar funciones / <strong>métodos</strong> a nuestras clases.
+               </p>
+               <div class="code">
+                    class Persona{
+                        &nbsp;&nbsp;public $nombre;
+                        &nbsp;&nbsp;public $edad;
+                        &nbsp;&nbsp;public $pais;
+                        <details>
+                            <summary>//solución</summary>
+                        &nbsp;&nbsp;public function mostrarInformacion(){
+                        &nbsp;&nbsp;&nbsp;&nbsp;echo "Hola, te saludo";  
+                        &nbsp;&nbsp;}
+                        </details>
+                    }                   
+                </div>
+                Y cómo lo utilizamos:
+                <div class="code">
+                    <details>
+                        <summary>//Utilización de un método tras instanciación de un <strong>objeto</strong>.</summary>
+                        $carlos = new Persona();
+                        $carlos->nombre = "Carlos";
+                        $carlos->edad = 23;
+                        $carlos->pais = "España";
+
+                        $carlos->obtenerInformacion();
+                    </details>
+                </div>         
+            </div>            
+        </section>
+
+    </main>
+    
+</body>
+</html>
